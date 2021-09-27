@@ -14,6 +14,7 @@ locals {
     "https://www.googleapis.com/auth/monitoring",
   ]
 }
+
 resource "google_container_cluster" "jx_cluster" {
   provider                = google-beta
   name                    = var.cluster_name
