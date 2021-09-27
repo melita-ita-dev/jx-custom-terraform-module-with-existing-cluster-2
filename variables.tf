@@ -42,7 +42,7 @@ variable "cluster_subnetwork" {
 variable "bucket_location" {
   description = "Bucket location for storage"
   type        = string
-  default     = "europe-west2-a"
+  default     = "europe-west2"
 }
 
 variable "jenkins_x_namespace" {
