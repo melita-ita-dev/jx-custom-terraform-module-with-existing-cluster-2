@@ -1,25 +1,25 @@
 output "cluster_name" {
-  value = google_container_cluster.melita-ita-staging-jx3.name
+  value = google_container_cluster.cluster-andreatest-1.name
 }
 
 output "cluster_location" {
-  value = google_container_cluster.melita-ita-staging-jx3.location
+  value = google_container_cluster.cluster-andreatest-1.location
 }
 
 output "cluster_endpoint" {
-  value = google_container_cluster.melita-ita-staging-jx3.endpoint
+  value = google_container_cluster.cluster-andreatest-1.endpoint
 }
 
 output "cluster_client_certificate" {
-  value = length(google_container_cluster.melita-ita-staging-jx3.master_auth) > 0 ? google_container_cluster.melita-ita-staging-jx3.master_auth[0].client_certificate : ""
+  value = length(google_container_cluster.cluster-andreatest-1.master_auth) > 0 ? google_container_cluster.cluster-andreatest-1.master_auth[0].client_certificate : ""
 }
 
 output "client_client_key" {
-  value = length(google_container_cluster.melita-ita-staging-jx3.master_auth) > 0 ? google_container_cluster.melita-ita-staging-jx3.master_auth[0].client_key : ""
+  value = length(google_container_cluster.cluster-andreatest-1.master_auth) > 0 ? google_container_cluster.cluster-andreatest-1.master_auth[0].client_key : ""
 }
 
 output "cluster_ca_certificate" {
-  value = length(google_container_cluster.melita-ita-staging-jx3.master_auth) > 0 ? google_container_cluster.melita-ita-staging-jx3.master_auth[0].cluster_ca_certificate : ""
+  value = length(google_container_cluster.cluster-andreatest-1.master_auth) > 0 ? google_container_cluster.cluster-andreatest-1.master_auth[0].cluster_ca_certificate : ""
 }
 
 output "log_storage_url" {
