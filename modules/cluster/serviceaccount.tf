@@ -128,7 +128,7 @@ resource "kubernetes_service_account" "build_controller_sa" {
     ]
   }
   depends_on = [
-    google_container_cluster.cluster-andreatest-1,
+    google_container_cluster.jx_cluster,
   ]
 }
 
@@ -152,7 +152,7 @@ resource "kubernetes_service_account" "kaniko_sa" {
     ]
   }
   depends_on = [
-    google_container_cluster.cluster-andreatest-1,
+    google_container_cluster.jx_cluster,
   ]
 }
 
@@ -190,7 +190,7 @@ resource "kubernetes_service_account" "tekton_sa" {
     ]
   }
   depends_on = [
-    google_container_cluster.cluster-andreatest-1,
+    google_container_cluster.jx_cluster,
   ]
 }
 

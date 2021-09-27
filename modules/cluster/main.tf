@@ -14,7 +14,7 @@ locals {
     "https://www.googleapis.com/auth/monitoring",
   ]
 }
-resource "google_container_cluster" "cluster-andreatest-1" {
+resource "google_container_cluster" "jx_cluster" {
   provider                = google-beta
   name                    = var.cluster_name
   description             = "jenkins-x cluster"
@@ -99,7 +99,7 @@ module "jx-health" {
   source = "github.com/jenkins-x/terraform-jx-health?ref=main"
 
   depends_on = [
-    google_container_cluster.cluster-andreatest-1
+    google_container_cluster.jx_cluster
   ]
 }
 
@@ -120,7 +120,7 @@ resource "kubernetes_namespace" "jenkins_x_namespace" {
     ]
   }
   depends_on = [
-    google_container_cluster.cluster-andreatest-1
+    google_container_cluster.jx_cluster
   ]
 }
 
@@ -140,7 +140,7 @@ resource "kubernetes_config_map" "jenkins_x_requirements" {
     "jx-requirements.yml" = var.content
   }
   depends_on = [
-    google_container_cluster.cluster-andreatest-1
+    google_container_cluster.jx_cluster
   ]
 }
 
@@ -184,7 +184,7 @@ resource "helm_release" "jx-git-operator" {
     ignore_changes = all
   }
   depends_on = [
-    google_container_cluster.cluster-andreatest-1
+    google_container_cluster.jx_cluster
   ]
 }
 
