@@ -144,41 +144,41 @@ variable "velero_ttl" {
 // ----------------------------------------------------------------------------
 // cluster configuration
 // ----------------------------------------------------------------------------
-variable "node_machine_type" {
-  description = "Node type for the Kubernetes cluster"
-  type        = string
-  default     = "n1-standard-2"
-}
+#variable "node_machine_type" {
+#  description = "Node type for the Kubernetes cluster"
+#  type        = string
+#  default     = "n1-standard-2"
+#}
 
-variable "node_preemptible" {
-  description = "Use preemptible nodes"
-  type        = bool
-  default     = false
-}
+#variable "node_preemptible" {
+#  description = "Use preemptible nodes"
+#  type        = bool
+#  default     = false
+#}
 
-variable "min_node_count" {
-  description = "Minimum number of cluster nodes"
-  type        = number
-  default     = 3
-}
+#variable "min_node_count" {
+#  description = "Minimum number of cluster nodes"
+#  type        = number
+#  default     = 3
+#}
 
-variable "max_node_count" {
-  description = "Maximum number of cluster nodes"
-  type        = number
-  default     = 5
-}
+#variable "max_node_count" {
+#  description = "Maximum number of cluster nodes"
+#  type        = number
+#  default     = 5
+#}
 
-variable "node_disk_size" {
-  description = "Node disk size in GB"
-  type        = string
-  default     = "100"
-}
+#variable "node_disk_size" {
+#  description = "Node disk size in GB"
+#  type        = string
+#  default     = "100"
+#}
 
-variable "node_disk_type" {
-  description = "Node disk type, either pd-standard or pd-ssd"
-  type        = string
-  default     = "pd-standard"
-}
+#variable "node_disk_type" {
+#  description = "Node disk type, either pd-standard or pd-ssd"
+#  type        = string
+#  default     = "pd-standard"
+#}
 
 // David: changed the default from UNSPECIFIED to STABLE
 
@@ -277,15 +277,15 @@ variable "kuberhealthy" {
 
 //----added by david-----
 
-variable "node_version" {
-  description = "version of k8s cluster"
-  type        = string
-  default     = "1.19.12-gke.2100"
-}
-variable "min_master_version" {
-  description = "minimum master version of k8s cluster"
-  type        = string
-  default     = "1.19.12-gke.2100"
-}
+#variable "node_version" {
+#  description = "version of k8s cluster"
+#  type        = string
+#  default     = "1.19.12-gke.2101"
+#}
+#variable "min_master_version" {
+#  description = "minimum master version of k8s cluster"
+#  type        = string
+#  default     = "1.19.12-gke.2101"
+#}
 
 //-----------------------
