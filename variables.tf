@@ -24,7 +24,7 @@ variable "zone" {
 variable "cluster_location" {
   description = "The location (region or zone) in which the cluster master will be created. If you specify a zone (such as us-central1-a), the cluster will be a zonal cluster with a single cluster master. If you specify a region (such as us-west1), the cluster will be a regional cluster with multiple masters spread across zones in the region"
   type        = string
-  default     = "us-central1-a"
+  default     = "europe-west2-a"
 }
 
 variable "cluster_network" {
@@ -42,7 +42,7 @@ variable "cluster_subnetwork" {
 variable "bucket_location" {
   description = "Bucket location for storage"
   type        = string
-  default     = "US"
+  default     = "europe-west2"
 }
 
 variable "jenkins_x_namespace" {
@@ -147,7 +147,7 @@ variable "velero_ttl" {
 variable "node_machine_type" {
   description = "Node type for the Kubernetes cluster"
   type        = string
-  default     = "n1-standard-2"
+  default     = "e2-standard-2"
 }
 
 variable "node_preemptible" {
@@ -277,15 +277,15 @@ variable "kuberhealthy" {
 
 //----added by david-----
 
-variable "node_version" {
-  description = "version of k8s cluster"
-  type        = string
-  default     = "1.19.12-gke.2100"
-}
-variable "min_master_version" {
-  description = "minimum master version of k8s cluster"
-  type        = string
-  default     = "1.19.12-gke.2100"
-}
+#variable "node_version" {
+#  description = "version of k8s cluster"
+#  type        = string
+#  default     = "1.19.12-gke.2100"
+#}
+#variable "min_master_version" {
+#  description = "minimum master version of k8s cluster"
+#  type        = string
+#  default     = "1.19.12-gke.2100"
+#}
 
 //-----------------------
