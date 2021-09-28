@@ -16,10 +16,10 @@ locals {
 }
 
 resource "google_container_cluster" "jx_cluster" {
-  provider                = google-beta
-  name                    = var.cluster_name
-  description             = "jenkins-x cluster"
-  location                = var.cluster_location
+  #provider                = google-beta
+  #name                    = var.cluster_name
+  #description             = "jenkins-x cluster"
+  #location                = var.cluster_location
   #network                 = var.cluster_network
   #subnetwork              = var.cluster_subnetwork
   #enable_kubernetes_alpha = var.enable_kubernetes_alpha
@@ -60,39 +60,39 @@ resource "google_container_cluster" "jx_cluster" {
 
   resource_labels = var.resource_labels
 
-  cluster_autoscaling {
-    enabled = true
+  #cluster_autoscaling {
+  #  enabled = true
 
-    auto_provisioning_defaults {
-      oauth_scopes = local.cluster_oauth_scopes
-    }
+  #  auto_provisioning_defaults {
+  #    oauth_scopes = local.cluster_oauth_scopes
+  #  }
 
-    resource_limits {
-      resource_type = "cpu"
-      minimum       = ceil(var.min_node_count * var.machine_types_cpu[var.node_machine_type])
-      maximum       = ceil(var.max_node_count * var.machine_types_cpu[var.node_machine_type])
-    }
+  #  resource_limits {
+  #    resource_type = "cpu"
+  #    minimum       = ceil(var.min_node_count * var.machine_types_cpu[var.node_machine_type])
+  #    maximum       = ceil(var.max_node_count * var.machine_types_cpu[var.node_machine_type])
+  #  }
 
-    resource_limits {
-      resource_type = "memory"
-      minimum       = ceil(var.min_node_count * var.machine_types_memory[var.node_machine_type])
-      maximum       = ceil(var.max_node_count * var.machine_types_memory[var.node_machine_type])
-    }
-  }
+  #  resource_limits {
+  #    resource_type = "memory"
+  #    minimum       = ceil(var.min_node_count * var.machine_types_memory[var.node_machine_type])
+  #    maximum       = ceil(var.max_node_count * var.machine_types_memory[var.node_machine_type])
+  #  }
+  #}
 
-  node_config {
-    preemptible  = var.node_preemptible
-    machine_type = var.node_machine_type
-    disk_size_gb = var.node_disk_size
-    disk_type    = var.node_disk_type
+  #node_config {
+  #  preemptible  = var.node_preemptible
+  #  machine_type = var.node_machine_type
+  #  disk_size_gb = var.node_disk_size
+  #  disk_type    = var.node_disk_type
 
-    oauth_scopes = local.cluster_oauth_scopes
+  #  oauth_scopes = local.cluster_oauth_scopes
 
-    workload_metadata_config {
-      node_metadata = "GKE_METADATA_SERVER"
-    }
+  #  workload_metadata_config {
+  #    node_metadata = "GKE_METADATA_SERVER"
+  #  }
 
-  }
+  #}
 }
 
 module "jx-health" {
