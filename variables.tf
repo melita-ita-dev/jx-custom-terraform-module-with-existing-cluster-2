@@ -24,7 +24,7 @@ variable "zone" {
 variable "cluster_location" {
   description = "The location (region or zone) in which the cluster master will be created. If you specify a zone (such as us-central1-a), the cluster will be a zonal cluster with a single cluster master. If you specify a region (such as us-west1), the cluster will be a regional cluster with multiple masters spread across zones in the region"
   type        = string
-  default     = "europe-west2-a"
+  default     = "us-central1-a"
 }
 
 variable "cluster_network" {
@@ -42,7 +42,7 @@ variable "cluster_subnetwork" {
 variable "bucket_location" {
   description = "Bucket location for storage"
   type        = string
-  default     = "europe-west2"
+  default     = "US"
 }
 
 variable "jenkins_x_namespace" {
@@ -144,41 +144,41 @@ variable "velero_ttl" {
 // ----------------------------------------------------------------------------
 // cluster configuration
 // ----------------------------------------------------------------------------
-#variable "node_machine_type" {
-#  description = "Node type for the Kubernetes cluster"
-#  type        = string
-#  default     = "n1-standard-2"
-#}
+variable "node_machine_type" {
+  description = "Node type for the Kubernetes cluster"
+  type        = string
+  default     = "n1-standard-2"
+}
 
-#variable "node_preemptible" {
-#  description = "Use preemptible nodes"
-#  type        = bool
-#  default     = false
-#}
+variable "node_preemptible" {
+  description = "Use preemptible nodes"
+  type        = bool
+  default     = false
+}
 
-#variable "min_node_count" {
-#  description = "Minimum number of cluster nodes"
-#  type        = number
-#  default     = 3
-#}
+variable "min_node_count" {
+  description = "Minimum number of cluster nodes"
+  type        = number
+  default     = 3
+}
 
-#variable "max_node_count" {
-#  description = "Maximum number of cluster nodes"
-#  type        = number
-#  default     = 5
-#}
+variable "max_node_count" {
+  description = "Maximum number of cluster nodes"
+  type        = number
+  default     = 5
+}
 
-#variable "node_disk_size" {
-#  description = "Node disk size in GB"
-#  type        = string
-#  default     = "100"
-#}
+variable "node_disk_size" {
+  description = "Node disk size in GB"
+  type        = string
+  default     = "100"
+}
 
-#variable "node_disk_type" {
-#  description = "Node disk type, either pd-standard or pd-ssd"
-#  type        = string
-#  default     = "pd-standard"
-#}
+variable "node_disk_type" {
+  description = "Node disk type, either pd-standard or pd-ssd"
+  type        = string
+  default     = "pd-standard"
+}
 
 // David: changed the default from UNSPECIFIED to STABLE
 
@@ -277,15 +277,15 @@ variable "kuberhealthy" {
 
 //----added by david-----
 
-#variable "node_version" {
-#  description = "version of k8s cluster"
-#  type        = string
-#  default     = "1.19.12-gke.2101"
-#}
-#variable "min_master_version" {
-#  description = "minimum master version of k8s cluster"
-#  type        = string
-#  default     = "1.19.12-gke.2101"
-#}
+variable "node_version" {
+  description = "version of k8s cluster"
+  type        = string
+  default     = "1.19.12-gke.2100"
+}
+variable "min_master_version" {
+  description = "minimum master version of k8s cluster"
+  type        = string
+  default     = "1.19.12-gke.2100"
+}
 
 //-----------------------

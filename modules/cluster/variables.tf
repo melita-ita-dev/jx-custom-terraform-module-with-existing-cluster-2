@@ -33,10 +33,10 @@ variable "jenkins_x_namespace" {
   type        = string
 }
 
-#variable "cluster_id" {
-#  description = "A random generated to uniqly name cluster resources"
-#  type        = string
-#}
+variable "cluster_id" {
+  description = "A random generated to uniqly name cluster resources"
+  type        = string
+}
 
 // ----------------------------------------------------------------------------
 // Optional Variables
@@ -45,7 +45,7 @@ variable "jenkins_x_namespace" {
 variable "bucket_location" {
   description = "Bucket location for storage"
   type        = string
-  default     = "europe-west2"
+  default     = "US"
 }
 
 variable "enable_log_storage" {
@@ -73,252 +73,251 @@ variable "force_destroy" {
 }
 
 // cluster configuration
-#variable "node_machine_type" {
-#  description = "Node type for the Kubernetes cluster"
-#  type        = string
-#}
+variable "node_machine_type" {
+  description = "Node type for the Kubernetes cluster"
+  type        = string
+}
 
 // https://cloud.google.com/compute/docs/machine-types
-#variable "machine_types_cpu" {
-#  type = map
-#  default = {
-#    "e2-standard-2"  = 2
-#    "e2-standard-4"  = 4
-#    "e2-standard-8"  = 8
-#    "e2-standard-16" = 16
-#    "e2-standard-32" = 32
+variable "machine_types_cpu" {
+  type = map
+  default = {
+    "e2-standard-2"  = 2
+    "e2-standard-4"  = 4
+    "e2-standard-8"  = 8
+    "e2-standard-16" = 16
+    "e2-standard-32" = 32
 
-#    "e2-highmem-2"  = 2
-#    "e2-highmem-4"  = 4
-#    "e2-highmem-8"  = 8
-#    "e2-highmem-16" = 16
+    "e2-highmem-2"  = 2
+    "e2-highmem-4"  = 4
+    "e2-highmem-8"  = 8
+    "e2-highmem-16" = 16
 
-#    "e2-highcpu-2"  = 2
-#    "e2-highcpu-4"  = 4
-#    "e2-highcpu-8"  = 8
-#    "e2-highcpu-16" = 16
-#    "e2-highcpu-32" = 32
+    "e2-highcpu-2"  = 2
+    "e2-highcpu-4"  = 4
+    "e2-highcpu-8"  = 8
+    "e2-highcpu-16" = 16
+    "e2-highcpu-32" = 32
 
-#    "n2-standard-2"  = 2
-#    "n2-standard-4"  = 4
-#
-#    "n2-standard-8"  = 8
-#    "n2-standard-16" = 16
-#    "n2-standard-32" = 32
-#    "n2-standard-48" = 48
-#    "n2-standard-64" = 64
-#    "n2-standard-80" = 80
+    "n2-standard-2"  = 2
+    "n2-standard-4"  = 4
+    "n2-standard-8"  = 8
+    "n2-standard-16" = 16
+    "n2-standard-32" = 32
+    "n2-standard-48" = 48
+    "n2-standard-64" = 64
+    "n2-standard-80" = 80
 
-#    "n2-highmem-2"  = 2
-#    "n2-highmem-4"  = 4
-#    "n2-highmem-8"  = 8
-#    "n2-highmem-16" = 16
-#    "n2-highmem-32" = 32
-#    "n2-highmem-48" = 48
-#    "n2-highmem-64" = 64
-#    "n2-highmem-80" = 80
+    "n2-highmem-2"  = 2
+    "n2-highmem-4"  = 4
+    "n2-highmem-8"  = 8
+    "n2-highmem-16" = 16
+    "n2-highmem-32" = 32
+    "n2-highmem-48" = 48
+    "n2-highmem-64" = 64
+    "n2-highmem-80" = 80
 
-#    "n2-highcpu-2"  = 2
-#    "n2-highcpu-4"  = 4
-#    "n2-highcpu-8"  = 8
-#    "n2-highcpu-16" = 16
-#    "n2-highcpu-32" = 32
-#    "n2-highcpu-48" = 48
-#    "n2-highcpu-64" = 64
-#    "n2-highcpu-80" = 80
+    "n2-highcpu-2"  = 2
+    "n2-highcpu-4"  = 4
+    "n2-highcpu-8"  = 8
+    "n2-highcpu-16" = 16
+    "n2-highcpu-32" = 32
+    "n2-highcpu-48" = 48
+    "n2-highcpu-64" = 64
+    "n2-highcpu-80" = 80
 
-#    "n2d-standard-2"   = 2
-#    "n2d-standard-4"   = 4
-#    "n2d-standard-8"   = 8
-#    "n2d-standard-16"  = 16
-#    "n2d-standard-32"  = 32
-#    "n2d-standard-48"  = 48
-#    "n2d-standard-64"  = 64
-#    "n2d-standard-80"  = 80
-#    "n2d-standard-96"  = 96
-#    "n2d-standard-128" = 128
-#    "n2d-standard-224" = 224
+    "n2d-standard-2"   = 2
+    "n2d-standard-4"   = 4
+    "n2d-standard-8"   = 8
+    "n2d-standard-16"  = 16
+    "n2d-standard-32"  = 32
+    "n2d-standard-48"  = 48
+    "n2d-standard-64"  = 64
+    "n2d-standard-80"  = 80
+    "n2d-standard-96"  = 96
+    "n2d-standard-128" = 128
+    "n2d-standard-224" = 224
 
-#    "n2d-highmem-2"  = 2
-#    "n2d-highmem-4"  = 4
-#    "n2d-highmem-8"  = 8
-#    "n2d-highmem-16" = 16
-#    "n2d-highmem-32" = 32
-#    "n2d-highmem-48" = 48
-#    "n2d-highmem-64" = 64
-#    "n2d-highmem-80" = 80
-#    "n2d-highmem-96" = 96
+    "n2d-highmem-2"  = 2
+    "n2d-highmem-4"  = 4
+    "n2d-highmem-8"  = 8
+    "n2d-highmem-16" = 16
+    "n2d-highmem-32" = 32
+    "n2d-highmem-48" = 48
+    "n2d-highmem-64" = 64
+    "n2d-highmem-80" = 80
+    "n2d-highmem-96" = 96
 
-#    "n2d-highcpu-2"   = 2
-#    "n2d-highcpu-4"   = 4
-#    "n2d-highcpu-8"   = 8
-#    "n2d-highcpu-16"  = 16
-#    "n2d-highcpu-32"  = 32
-#    "n2d-highcpu-48"  = 48
-#    "n2d-highcpu-64"  = 64
-#    "n2d-highcpu-80"  = 80
-#    "n2d-highcpu-96"  = 96
-#    "n2d-highcpu-128" = 128
-#    "n2d-highcpu-224" = 224
+    "n2d-highcpu-2"   = 2
+    "n2d-highcpu-4"   = 4
+    "n2d-highcpu-8"   = 8
+    "n2d-highcpu-16"  = 16
+    "n2d-highcpu-32"  = 32
+    "n2d-highcpu-48"  = 48
+    "n2d-highcpu-64"  = 64
+    "n2d-highcpu-80"  = 80
+    "n2d-highcpu-96"  = 96
+    "n2d-highcpu-128" = 128
+    "n2d-highcpu-224" = 224
 
-#    "c2-standard-4"  = 4
-#    "c2-standard-8"  = 8
-#    "c2-standard-16" = 16
-#    "c2-standard-30" = 30
-#    "c2-standard-60" = 60
+    "c2-standard-4"  = 4
+    "c2-standard-8"  = 8
+    "c2-standard-16" = 16
+    "c2-standard-30" = 30
+    "c2-standard-60" = 60
 
-#    "n1-standard-1"  = 1
-#    "n1-standard-2"  = 2
-#    "n1-standard-4"  = 4
-#    "n1-standard-8"  = 8
-#    "n1-standard-16" = 16
-#    "n1-standard-32" = 32
-#    "n1-standard-64" = 64
-#    "n1-standard-96" = 96
+    "n1-standard-1"  = 1
+    "n1-standard-2"  = 2
+    "n1-standard-4"  = 4
+    "n1-standard-8"  = 8
+    "n1-standard-16" = 16
+    "n1-standard-32" = 32
+    "n1-standard-64" = 64
+    "n1-standard-96" = 96
 
-#    "n1-highmem-2"  = 2
-#    "n1-highmem-4"  = 4
-#    "n1-highmem-8"  = 8
-#    "n1-highmem-16" = 16
-#    "n1-highmem-32" = 32
-#    "n1-highmem-64" = 64
-#    "n1-highmem-96" = 96
+    "n1-highmem-2"  = 2
+    "n1-highmem-4"  = 4
+    "n1-highmem-8"  = 8
+    "n1-highmem-16" = 16
+    "n1-highmem-32" = 32
+    "n1-highmem-64" = 64
+    "n1-highmem-96" = 96
 
-#    "n1-highcpu-2"  = 2
-#    "n1-highcpu-4"  = 4
-#    "n1-highcpu-8"  = 8
-#    "n1-highcpu-16" = 16
-#    "n1-highcpu-32" = 32
-#    "n1-highcpu-64" = 64
-#    "n1-highcpu-96" = 96
-#  }
-#}
+    "n1-highcpu-2"  = 2
+    "n1-highcpu-4"  = 4
+    "n1-highcpu-8"  = 8
+    "n1-highcpu-16" = 16
+    "n1-highcpu-32" = 32
+    "n1-highcpu-64" = 64
+    "n1-highcpu-96" = 96
+  }
+}
 
-#variable "machine_types_memory" {
-#  type = map
-#  default = {
-#    "e2-standard-2"  = 8
-#    "e2-standard-4"  = 16
-#    "e2-standard-8"  = 32
-#    "e2-standard-16" = 64
-#    "e2-standard-32" = 128
-#
-#    "e2-highmem-2"  = 16
-#    "e2-highmem-4"  = 32
-#    "e2-highmem-8"  = 64
-#    "e2-highmem-16" = 128
-#
-#   "e2-highcpu-2"  = 2
-#    "e2-highcpu-4"  = 4
-#    "e2-highcpu-8"  = 8
-#    "e2-highcpu-16" = 16
-#    "e2-highcpu-32" = 32
-#
-#    "n2-standard-2"  = 8
-#    "n2-standard-4"  = 16
-#    "n2-standard-8"  = 32
-#    "n2-standard-16" = 64
-#    "n2-standard-32" = 128
-#    "n2-standard-48" = 192
-#    "n2-standard-64" = 256
-#    "n2-standard-80" = 320
+variable "machine_types_memory" {
+  type = map
+  default = {
+    "e2-standard-2"  = 8
+    "e2-standard-4"  = 16
+    "e2-standard-8"  = 32
+    "e2-standard-16" = 64
+    "e2-standard-32" = 128
 
-#    "n2-highmem-2"  = 16
-#    "n2-highmem-4"  = 32
-#    "n2-highmem-8"  = 64
-#    "n2-highmem-16" = 128
-#    "n2-highmem-32" = 256
-#    "n2-highmem-48" = 384
-#    "n2-highmem-64" = 512
-#    "n2-highmem-80" = 640
+    "e2-highmem-2"  = 16
+    "e2-highmem-4"  = 32
+    "e2-highmem-8"  = 64
+    "e2-highmem-16" = 128
 
-#    "n2-highcpu-2"  = 2
-#    "n2-highcpu-4"  = 4
-#    "n2-highcpu-8"  = 8
-#    "n2-highcpu-16" = 16
-#    "n2-highcpu-32" = 32
-#    "n2-highcpu-48" = 48
-#    "n2-highcpu-64" = 64
-#    "n2-highcpu-80" = 80
+    "e2-highcpu-2"  = 2
+    "e2-highcpu-4"  = 4
+    "e2-highcpu-8"  = 8
+    "e2-highcpu-16" = 16
+    "e2-highcpu-32" = 32
 
-#    "n2d-standard-2"   = 2
-#    "n2d-standard-4"   = 4
-#    "n2d-standard-8"   = 8
-#    "n2d-standard-16"  = 16
-#    "n2d-standard-32"  = 32
-#    "n2d-standard-48"  = 48
-#    "n2d-standard-64"  = 64
-#    "n2d-standard-80"  = 80
-#    "n2d-standard-96"  = 96
-#    "n2d-standard-128" = 128
-#    "n2d-standard-224" = 224
+    "n2-standard-2"  = 8
+    "n2-standard-4"  = 16
+    "n2-standard-8"  = 32
+    "n2-standard-16" = 64
+    "n2-standard-32" = 128
+    "n2-standard-48" = 192
+    "n2-standard-64" = 256
+    "n2-standard-80" = 320
 
-#    "n2d-highmem-2"  = 16
-#    "n2d-highmem-4"  = 32
-#    "n2d-highmem-8"  = 64
-#    "n2d-highmem-16" = 128
-#    "n2d-highmem-32" = 256
-#    "n2d-highmem-48" = 384
-#    "n2d-highmem-64" = 512
-#    "n2d-highmem-80" = 640
-#    "n2d-highmem-96" = 768
+    "n2-highmem-2"  = 16
+    "n2-highmem-4"  = 32
+    "n2-highmem-8"  = 64
+    "n2-highmem-16" = 128
+    "n2-highmem-32" = 256
+    "n2-highmem-48" = 384
+    "n2-highmem-64" = 512
+    "n2-highmem-80" = 640
 
-#    "n2d-highcpu-2"   = 2
-#    "n2d-highcpu-4"   = 4
-#    "n2d-highcpu-8"   = 8
-#    "n2d-highcpu-16"  = 16
-#    "n2d-highcpu-32"  = 32
-#    "n2d-highcpu-48"  = 48
-#    "n2d-highcpu-64"  = 64
-#    "n2d-highcpu-80"  = 80
-#    "n2d-highcpu-96"  = 96
-#    "n2d-highcpu-128" = 128
-#    "n2d-highcpu-224" = 224
+    "n2-highcpu-2"  = 2
+    "n2-highcpu-4"  = 4
+    "n2-highcpu-8"  = 8
+    "n2-highcpu-16" = 16
+    "n2-highcpu-32" = 32
+    "n2-highcpu-48" = 48
+    "n2-highcpu-64" = 64
+    "n2-highcpu-80" = 80
 
-#    "c2-standard-4"  = 16
-#    "c2-standard-8"  = 32
-#    "c2-standard-16" = 64
-#    "c2-standard-30" = 120
-#    "c2-standard-60" = 240
+    "n2d-standard-2"   = 2
+    "n2d-standard-4"   = 4
+    "n2d-standard-8"   = 8
+    "n2d-standard-16"  = 16
+    "n2d-standard-32"  = 32
+    "n2d-standard-48"  = 48
+    "n2d-standard-64"  = 64
+    "n2d-standard-80"  = 80
+    "n2d-standard-96"  = 96
+    "n2d-standard-128" = 128
+    "n2d-standard-224" = 224
 
-#    "n1-standard-1"  = 3.75
-#    "n1-standard-2"  = 7.50
-#    "n1-standard-4"  = 15
-#    "n1-standard-8"  = 30
-#    "n1-standard-16" = 60
-#    "n1-standard-32" = 120
-#    "n1-standard-64" = 240
-#    "n1-standard-96" = 360
+    "n2d-highmem-2"  = 16
+    "n2d-highmem-4"  = 32
+    "n2d-highmem-8"  = 64
+    "n2d-highmem-16" = 128
+    "n2d-highmem-32" = 256
+    "n2d-highmem-48" = 384
+    "n2d-highmem-64" = 512
+    "n2d-highmem-80" = 640
+    "n2d-highmem-96" = 768
 
-#    "n1-highmem-2"  = 13
-#    "n1-highmem-4"  = 26
-#    "n1-highmem-8"  = 52
-#    "n1-highmem-16" = 104
-#    "n1-highmem-32" = 208
-#    "n1-highmem-64" = 416
-#    "n1-highmem-96" = 624
+    "n2d-highcpu-2"   = 2
+    "n2d-highcpu-4"   = 4
+    "n2d-highcpu-8"   = 8
+    "n2d-highcpu-16"  = 16
+    "n2d-highcpu-32"  = 32
+    "n2d-highcpu-48"  = 48
+    "n2d-highcpu-64"  = 64
+    "n2d-highcpu-80"  = 80
+    "n2d-highcpu-96"  = 96
+    "n2d-highcpu-128" = 128
+    "n2d-highcpu-224" = 224
 
-#    "n1-highcpu-2"  = 1.8
-#    "n1-highcpu-4"  = 3.6
-#    "n1-highcpu-8"  = 7.2
-#    "n1-highcpu-16" = 14.4
-#    "n1-highcpu-32" = 28.8
-#    "n1-highcpu-64" = 57.6
-#    "n1-highcpu-96" = 86.4
-#  }
-#}
+    "c2-standard-4"  = 16
+    "c2-standard-8"  = 32
+    "c2-standard-16" = 64
+    "c2-standard-30" = 120
+    "c2-standard-60" = 240
 
-#variable "min_node_count" {
-#  description = "Minimum number of cluster nodes"
-#  type        = number
-#  default     = 3
-#}
+    "n1-standard-1"  = 3.75
+    "n1-standard-2"  = 7.50
+    "n1-standard-4"  = 15
+    "n1-standard-8"  = 30
+    "n1-standard-16" = 60
+    "n1-standard-32" = 120
+    "n1-standard-64" = 240
+    "n1-standard-96" = 360
 
-#variable "max_node_count" {
-#  description = "Maximum number of cluster nodes"
-#  type        = number
-#  default     = 5
-#}
+    "n1-highmem-2"  = 13
+    "n1-highmem-4"  = 26
+    "n1-highmem-8"  = 52
+    "n1-highmem-16" = 104
+    "n1-highmem-32" = 208
+    "n1-highmem-64" = 416
+    "n1-highmem-96" = 624
+
+    "n1-highcpu-2"  = 1.8
+    "n1-highcpu-4"  = 3.6
+    "n1-highcpu-8"  = 7.2
+    "n1-highcpu-16" = 14.4
+    "n1-highcpu-32" = 28.8
+    "n1-highcpu-64" = 57.6
+    "n1-highcpu-96" = 86.4
+  }
+}
+
+variable "min_node_count" {
+  description = "Minimum number of cluster nodes"
+  type        = number
+  default     = 3
+}
+
+variable "max_node_count" {
+  description = "Maximum number of cluster nodes"
+  type        = number
+  default     = 5
+}
 
 variable "release_channel" {
   description = "The GKE release channel to subscribe to.  See https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels"
@@ -332,23 +331,23 @@ variable "resource_labels" {
   default     = {}
 }
 
-#variable "node_preemptible" {
-#  description = "Use preemptible nodes"
-#  type        = bool
-#  default     = false
-#}
+variable "node_preemptible" {
+  description = "Use preemptible nodes"
+  type        = bool
+  default     = false
+}
 
-#variable "node_disk_type" {
-#  description = "Node disk type (pd-ssd or pd-standard)"
-#  type        = string
-#  default     = "pd-ssd"
-#}
+variable "node_disk_type" {
+  description = "Node disk type (pd-ssd or pd-standard)"
+  type        = string
+  default     = "pd-ssd"
+}
 
-#variable "node_disk_size" {
-#  description = "Node disk size in GB"
-#  type        = string
-#  default     = "100"
-#}
+variable "node_disk_size" {
+  description = "Node disk size in GB"
+  type        = string
+  default     = "100"
+}
 
 variable "enable_kubernetes_alpha" {
   type    = bool
@@ -438,22 +437,22 @@ variable "content" {
 
 //----added by david-----
 
-#variable "node_version" {
-#  description = "version of k8s cluster"
-#  type        = string
-#  default     = "1.19.12-gke.2100"
-#}
+variable "node_version" {
+  description = "version of k8s cluster"
+  type        = string
+  default     = "1.19.12-gke.2100"
+}
 
-#variable "min_master_version" {
-#  description = "minimum master version of k8s cluster"
-#  type        = string
-#  default     = "1.19.12-gke.2100"
-#}
+variable "min_master_version" {
+  description = "minimum master version of k8s cluster"
+  type        = string
+  default     = "1.19.12-gke.2100"
+}
 
-#variable "cluster_ipv4_cidr" {
-#  description = "pod ip address range"
-#  type        = string
-#  default     = "10.56.0.0/14"
-#}
+variable "cluster_ipv4_cidr" {
+  description = "pod ip address range"
+  type        = string
+  default     = "10.56.0.0/14"
+}
 
 //-----------------------
