@@ -76,6 +76,87 @@ resource "random_pet" "current" {
   }
 }
 
+resource "google_container_cluster" "jx_cluster" {
+  provider                = google-beta
+  name                    = var.cluster_name
+  description             = "jenkins-x cluster"
+  location                = var.cluster_location
+  network                 = var.cluster_network
+  subnetwork              = var.cluster_subnetwork
+  enable_kubernetes_alpha = var.enable_kubernetes_alpha
+  enable_legacy_abac      = var.enable_legacy_abac
+  enable_shielded_nodes   = var.enable_shielded_nodes
+  initial_node_count      = var.min_node_count
+  logging_service         = var.logging_service
+  monitoring_service      = var.monitoring_service
+
+
+  //----added by david-----
+
+  node_version            = var.node_version
+  min_master_version      = var.min_master_version
+  cluster_ipv4_cidr       = var.cluster_ipv4_cidr
+
+  //-----------------------
+
+  // should disable master auth
+  master_auth {
+    username = ""
+    password = ""
+  }
+
+  maintenance_policy {
+    daily_maintenance_window {
+      start_time = "03:00"
+    }
+  }
+
+  release_channel {
+    channel = var.release_channel
+  }
+
+  workload_identity_config {
+    identity_namespace = "${var.gcp_project}.svc.id.goog"
+  }
+
+  resource_labels = var.resource_labels
+
+  cluster_autoscaling {
+    enabled = true
+
+    auto_provisioning_defaults {
+      oauth_scopes = local.cluster_oauth_scopes
+    }
+
+    resource_limits {
+      resource_type = "cpu"
+      minimum       = ceil(var.min_node_count * var.machine_types_cpu[var.node_machine_type])
+      maximum       = ceil(var.max_node_count * var.machine_types_cpu[var.node_machine_type])
+    }
+
+    resource_limits {
+      resource_type = "memory"
+      minimum       = ceil(var.min_node_count * var.machine_types_memory[var.node_machine_type])
+      maximum       = ceil(var.max_node_count * var.machine_types_memory[var.node_machine_type])
+    }
+  }
+
+  node_config {
+    preemptible  = var.node_preemptible
+    machine_type = var.node_machine_type
+    disk_size_gb = var.node_disk_size
+    disk_type    = var.node_disk_type
+
+    oauth_scopes = local.cluster_oauth_scopes
+
+    workload_metadata_config {
+      node_metadata = "GKE_METADATA_SERVER"
+    }
+
+  }
+}
+
+
 locals {
   cluster_name = var.cluster_name != "" ? var.cluster_name : random_pet.current.id
   # provide backwards compatibility with the deprecated zone variable
