@@ -8,8 +8,8 @@
 resource "google_container_cluster" "jx_cluster" {
   provider                = google-beta
   name                    = var.cluster_name
-  #description             = "jenkins-x cluster"
-  #location                = var.cluster_location
+  description             = "jenkins-x cluster"
+  location                = var.cluster_location
   #network                 = var.cluster_network
   #subnetwork              = var.cluster_subnetwork
   #enable_kubernetes_alpha = var.enable_kubernetes_alpha
