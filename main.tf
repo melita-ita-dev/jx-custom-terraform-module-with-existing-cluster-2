@@ -41,25 +41,25 @@ data "google_client_config" "default" {
 
 provider "kubernetes" {
   version          = "~>1.11.0"
-  load_config_file = false
+  load_config_file = true
 
-  host                   = "https://${module.cluster.cluster_endpoint}"
-  token                  = data.google_client_config.default.access_token
-  cluster_ca_certificate = base64decode(module.cluster.cluster_ca_certificate)
+  #host                   = "https://${module.cluster.cluster_endpoint}"
+  #token                  = data.google_client_config.default.access_token
+  #cluster_ca_certificate = base64decode(module.cluster.cluster_ca_certificate)
 }
 
 provider "helm" {
   version = "~>1.3.0"
   debug   = true
 
-  kubernetes {
-    host                   = "https://${module.cluster.cluster_endpoint}"
-    token                  = data.google_client_config.default.access_token
-    client_certificate     = base64decode(module.cluster.cluster_client_certificate)
-    client_key             = base64decode(module.cluster.client_client_key)
-    cluster_ca_certificate = base64decode(module.cluster.cluster_ca_certificate)
+  #kubernetes {
+    #host                   = "https://${module.cluster.cluster_endpoint}"
+    #token                  = data.google_client_config.default.access_token
+    #client_certificate     = base64decode(module.cluster.cluster_client_certificate)
+    #client_key             = base64decode(module.cluster.client_client_key)
+    #cluster_ca_certificate = base64decode(module.cluster.cluster_ca_certificate)
 
-    load_config_file = false
+    load_config_file = true
   }
 }
 
