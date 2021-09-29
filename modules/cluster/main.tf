@@ -94,15 +94,6 @@ resource "google_container_cluster" "jx_cluster" {
   }
 }
 
-module "jx-health" {
-  count  = var.jx2 && var.kuberhealthy ? 0 : 1
-  source = "github.com/jenkins-x/terraform-jx-health?ref=main"
-
-  depends_on = [
-    google_container_cluster.jx_cluster
-  ]
-}
-
 // ----------------------------------------------------------------------------
 #Added by Andrea Gaffiero to be able to terraform import google_container_node_pool of existing cluster.
 
@@ -146,6 +137,16 @@ resource "google_container_node_pool" "large_nodes" {
     auto_upgrade = "false"
   }
 }
+
+module "jx-health" {
+  count  = var.jx2 && var.kuberhealthy ? 0 : 1
+  source = "github.com/jenkins-x/terraform-jx-health?ref=main"
+
+  depends_on = [
+    google_container_cluster.jx_cluster
+  ]
+}
+
 
 // ----------------------------------------------------------------------------
 // Add main Jenkins X Kubernetes namespace
