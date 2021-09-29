@@ -17,7 +17,7 @@ locals {
 resource "google_container_cluster" "jx_cluster" {
   provider                = google-beta
   name                    = var.cluster_name
-  description             = "jenkins-x cluster"
+  description             = ""
   location                = var.cluster_location
   network                 = var.cluster_network
   subnetwork              = var.cluster_subnetwork
