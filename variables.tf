@@ -156,11 +156,11 @@ variable "node_preemptible" {
   default     = false
 }
 
-#variable "min_node_count" {
-#  description = "Minimum number of cluster nodes"
-#  type        = number
-#  default     = 3
-#}
+variable "min_node_count" {
+  description = "Minimum number of cluster nodes"
+  type        = number
+  default     = 0
+}
 
 variable "max_node_count" {
   description = "Maximum number of cluster nodes"
