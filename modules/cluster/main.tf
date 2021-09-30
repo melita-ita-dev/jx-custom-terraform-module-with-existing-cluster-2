@@ -88,7 +88,7 @@ resource "google_container_cluster" "jx_cluster" {
     oauth_scopes = local.cluster_oauth_scopes
 
     workload_metadata_config {
-      node_metadata = "GKE_METADATA_SERVER"
+      node_metadata = ""
     }
 
   }
