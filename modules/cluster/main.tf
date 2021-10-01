@@ -13,6 +13,9 @@ locals {
     "https://www.googleapis.com/auth/logging.write",
     "https://www.googleapis.com/auth/monitoring",
 
+    #https://www.googleapis.com/auth/logging.admin changed to https://www.googleapis.com/auth/write.
+    #changed this in order to not create another node pool
+
   ]
 }
 resource "google_container_cluster" "jx_cluster" {
