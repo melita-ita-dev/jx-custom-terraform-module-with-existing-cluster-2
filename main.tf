@@ -169,8 +169,8 @@ module "cluster" {
   resource_labels   = var.resource_labels
 
   release_channel   = var.release_channel
-  #node_version        = var.node_version
-  #min_master_version  = var.min_master_version
+  node_version        = var.node_version
+  min_master_version  = var.min_master_version
 
   create_ui_sa = var.create_ui_sa
   jx2          = var.jx2

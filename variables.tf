@@ -277,15 +277,15 @@ variable "kuberhealthy" {
 
 //----added by david-----
 
-#variable "node_version" {
-#  description = "version of k8s cluster"
-#  type        = string
-#  default     = "1.19.12-gke.2100"
-#}
-#variable "min_master_version" {
-#  description = "minimum master version of k8s cluster"
-#  type        = string
-#  default     = "1.19.12-gke.2100"
-#}
+variable "node_version" {
+  description = "version of k8s cluster"
+  type        = string
+  default     = "1.19.12-gke.2100"
+}
+variable "min_master_version" {
+  description = "minimum master version of k8s cluster"
+  type        = string
+  default     = "1.19.12-gke.2100"
+}
 
 //-----------------------
