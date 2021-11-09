@@ -191,3 +191,72 @@ resource "helm_release" "jx-git-operator" {
   ]
 }
 
+//----------added by david-----------------
+
+resource "kubernetes_daemonset" "ip-masq-daemonset"{
+  metadata {
+    name = "ip-masq-agent"
+    namespace = "kube-system"
+  }
+
+  spec {
+    selector {
+      match_labels = {
+        k8s-app = "ip-masq-agent"
+      }
+    }
+
+    template {
+      metadata  {
+        labels = {
+          k8s-app = "ip-masq-agent"
+        }
+      }
+
+      spec {
+        host_network = true
+        container {
+          name = "ip-masq-agent"
+          image = "gcr.io/google-containers/ip-masq-agent-amd64:v2.0.0"
+          security_context {
+            privileged = false
+            capabilities {
+              add = [
+                "NET_ADMIN",
+                "NET_RAW"
+              ]
+            }
+          }
+          volume_mount {
+              name = "config"
+              mount_path = "/etc/config"
+          }
+        }
+        volume {
+          name = "config"
+          config_map {
+            name = "ip-masq-agent"
+            optional = false
+            items {
+                key = "config"
+                path = "ip-masq-agent"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+resource "kubernetes_config_map" "masq-ip-cm"{
+  metadata {
+    name          = "ip-masq-agent"
+    namespace     = "kube-system"
+  }
+
+  data = {
+    "config"      = "nonMasqueradeCIDRs:\n  - 10.56.0.0/14\nresyncInterval: 60s"
+  }
+}
+
+//------------------------------------
