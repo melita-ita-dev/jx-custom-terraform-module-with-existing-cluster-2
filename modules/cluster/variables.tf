@@ -437,22 +437,22 @@ variable "content" {
 
 //----added by david-----
 
-variable "node_version" {
-  description = "version of k8s cluster"
-  type        = string
-  default     = "1.19.12-gke.2100"
-}
+#variable "node_version" {
+#  description = "version of k8s cluster"
+#  type        = string
+#  default     = "1.19.12-gke.2100"
+#}
 
-variable "min_master_version" {
-  description = "minimum master version of k8s cluster"
-  type        = string
-  default     = "1.19.12-gke.2100"
-}
+#variable "min_master_version" {
+#  description = "minimum master version of k8s cluster"
+#  type        = string
+#  default     = "1.19.12-gke.2100"
+#}
 
-variable "cluster_ipv4_cidr" {
-  description = "pod ip address range"
-  type        = string
-  default     = "10.56.0.0/14"
-}
+#variable "cluster_ipv4_cidr" {
+#  description = "pod ip address range"
+#  type        = string
+#  default     = "10.56.0.0/14"
+#}
 
 //-----------------------

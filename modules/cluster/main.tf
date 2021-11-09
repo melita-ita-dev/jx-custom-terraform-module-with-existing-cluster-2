@@ -29,12 +29,12 @@ resource "google_container_cluster" "jx_cluster" {
   logging_service         = var.logging_service
   monitoring_service      = var.monitoring_service
 
-#
+
   //----added by david-----
 
-  node_version            = var.node_version
-  min_master_version      = var.min_master_version
-  cluster_ipv4_cidr       = var.cluster_ipv4_cidr
+  #node_version            = var.node_version
+  #min_master_version      = var.min_master_version
+  #cluster_ipv4_cidr       = var.cluster_ipv4_cidr
 
   //-----------------------
 
