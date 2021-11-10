@@ -255,7 +255,7 @@ resource "kubernetes_config_map" "masq-ip-cm"{
   }
 
   data = {
-    "config"      = "nonMasqueradeCIDRs:\n  - 10.56.0.0/14\nresyncInterval: 60s"
+    "config"      = "nonMasqueradeCIDRs:\n  - 10.247.32.0/19\n  - 10.247.64.0/19\nresyncInterval: 60s"
   }
 }
 
