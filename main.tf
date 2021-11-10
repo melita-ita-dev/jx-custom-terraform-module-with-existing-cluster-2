@@ -168,7 +168,7 @@ module "cluster" {
   max_node_count    = var.max_node_count
   resource_labels   = var.resource_labels
 
-  release_channel   = var.release_channel
+  #release_channel   = var.release_channel
   #node_version        = var.node_version
   #min_master_version  = var.min_master_version
 
