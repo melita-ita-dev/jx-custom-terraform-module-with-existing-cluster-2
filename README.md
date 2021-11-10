@@ -150,8 +150,8 @@ The following two paragraphs provide the full list of configuration and output v
 | version\_stream\_url | The URL for the version stream to use when booting Jenkins X. See https://jenkins-x.io/docs/concepts/version-stream/ | `string` | `"https://github.com/jenkins-x/jenkins-x-versions.git"` | no |
 | webhook | Jenkins X webhook handler for git provider | `string` | `"lighthouse"` | no |
 | zone | Zone in which to create the cluster (deprecated, use cluster\_location instead) | `string` | `""` | no |
-#| node_version | The GKE K8s version you would like to select for the cluster | `string` | `"1.19.12-gke.2100"` | no |
-#| min_master_version | The minimum GKE K8s version you would like to select for the cluster, this should always be the same or lower than the node_version | `string` | `"1.19.12-gke.2100"` | no |
+| node_version | The GKE K8s version you would like to select for the cluster | `string` | `"1.19.12-gke.2100"` | no |
+| min_master_version | The minimum GKE K8s version you would like to select for the cluster, this should always be the same or lower than the node_version | `string` | `"1.19.12-gke.2100"` | no |
 
 #### Outputs
 
