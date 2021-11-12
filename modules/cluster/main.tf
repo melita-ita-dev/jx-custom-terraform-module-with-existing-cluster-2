@@ -192,7 +192,7 @@ resource "helm_release" "jx-git-operator" {
 }
 
 //----------added by david-----------------
-
+/*
 resource "kubernetes_daemonset" "ip-masq-daemonset"{
   metadata {
     name = "ip-masq-agent"
@@ -258,5 +258,5 @@ resource "kubernetes_config_map" "masq-ip-cm"{
     "config"      = "nonMasqueradeCIDRs:\n  - 10.247.32.0/19\n  - 10.247.64.0/19\nresyncInterval: 60s"
   }
 }
-
+*/
 //------------------------------------
