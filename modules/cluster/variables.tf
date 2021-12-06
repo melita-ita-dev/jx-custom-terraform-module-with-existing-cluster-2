@@ -38,6 +38,11 @@ variable "jxui_sc_name" {
   type        = string
 }
 
+variable "boot_sc_name" {
+  description = "Name of the Kubernetes cluster jxui service account"
+  type        = string
+}
+
 variable "jenkins_x_namespace" {
   description = "Kubernetes namespace to install Jenkins X in"
   type        = string
