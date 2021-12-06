@@ -41,8 +41,8 @@ resource "google_project_iam_member" "kaniko_sa_storage_admin_binding" {
 // Tekton
 resource "google_service_account" "tekton_sa" {
   provider     = google
-  account_id   = "${var.cluster_name}-tekton"
-  display_name = substr("Tekton service account for cluster ${var.cluster_name}", 0, 100)
+  account_id   = "${var.tekton_sc_name}-tekton"
+  display_name = substr("Tekton service account for cluster ${var.tekton_sc_name}", 0, 100)
 }
 
 resource "google_project_iam_member" "tekton_sa_storage_object_admin_binding" {
