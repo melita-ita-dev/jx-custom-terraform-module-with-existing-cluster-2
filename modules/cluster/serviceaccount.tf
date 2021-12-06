@@ -69,8 +69,8 @@ resource "google_service_account" "jxui_sa" {
   count = var.create_ui_sa ? 1 : 0
 
   provider     = google
-  account_id   = "${var.cluster_name}-jxui"
-  display_name = substr("Jenkins X UI service account for cluster ${var.cluster_name}", 0, 100)
+  account_id   = "${var.jxui_sc_name}-jxui"
+  display_name = substr("Jenkins X UI service account for cluster ${var.jxui_sc_name}", 0, 100)
 }
 
 resource "google_project_iam_member" "ui_sa_storage_admin_binding" {

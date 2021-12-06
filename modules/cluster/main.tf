@@ -18,7 +18,6 @@ locals {
 resource "google_container_cluster" "jx_cluster" {
   provider                = google-beta
   name                    = var.cluster_name
-  tekton_sc_name          = var.tekton_sc_name
   description             = ""
   location                = var.cluster_location
   network                 = var.cluster_network
