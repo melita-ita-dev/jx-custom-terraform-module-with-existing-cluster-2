@@ -28,6 +28,11 @@ variable "cluster_name" {
   type        = string
 }
 
+variable "tekton_sc_name" {
+  description = "Name of the Kubernetes cluster tekton service account"
+  type        = string
+}
+
 variable "jenkins_x_namespace" {
   description = "Kubernetes namespace to install Jenkins X in"
   type        = string
