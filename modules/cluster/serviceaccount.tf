@@ -8,7 +8,7 @@
 resource "google_service_account" "build_controller_sa" {
   provider     = google
   account_id   = "${var.cluster_name}-bc"
-  display_name = substr("Build controller service account for cluster ${var.cluster_name}", 0, 100)
+  display_name = substr("Build controller service account for jx3 cluster ${var.cluster_name}", 0, 100)
 }
 
 resource "google_project_iam_member" "build_controller_sa_storage_object_admin_binding" {
@@ -28,7 +28,7 @@ resource "google_project_iam_member" "build_controller_sa_storage_admin_binding"
 resource "google_service_account" "kaniko_sa" {
   provider     = google
   account_id   = "${var.cluster_name}-ko"
-  display_name = substr("Kaniko service account for cluster ${var.cluster_name}", 0, 100)
+  display_name = substr("Kaniko service account for jx3 cluster ${var.cluster_name}", 0, 100)
 }
 
 resource "google_project_iam_member" "kaniko_sa_storage_admin_binding" {

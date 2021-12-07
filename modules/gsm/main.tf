@@ -25,7 +25,7 @@ resource "google_project_service" "secretmanager_api" {
 resource "google_service_account" "gsm_sa" {
   provider     = google
   account_id   = local.sa_name
-  display_name = substr("GSM service account for cluster ${var.cluster_name}", 0, 100)
+  display_name = substr("GSM service account for jx3 cluster ${var.cluster_name}", 0, 100)
 }
 
 // ----------------------------------------------------------------------------
