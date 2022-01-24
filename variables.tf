@@ -21,17 +21,17 @@ variable "tekton_sc_name" {
   default     = ""
 }
 
-#variable "jxui_sc_name" {
-#  description = "Name of the Kubernetes cluster tekton service account"
-#  type        = string
-#  default     = ""
-#}
+variable "jxui_sc_name" {
+  description = "Name of the Kubernetes cluster tekton service account"
+  type        = string
+  default     = ""
+}
 
-#variable "boot_sc_name" {
-#  description = "Name of the Kubernetes cluster tekton service account"
-#  type        = string
-#  default     = ""
-#}
+variable "boot_sc_name" {
+  description = "Name of the Kubernetes cluster tekton service account"
+  type        = string
+  default     = ""
+}
 
 variable "zone" {
   description = "Zone in which to create the cluster (deprecated, use cluster_location instead)"
