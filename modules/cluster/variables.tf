@@ -11,6 +11,11 @@ variable "cluster_location" {
   type        = string
 }
 
+variable "node_locations" {
+  description = "The location (region or zone) in which the cluster nodes will be created. If you specify a zone (such as us-central1-a), the cluster will be a zonal cluster with a single cluster master. If you specify a region (such as us-west1), the cluster will be a regional cluster with multiple masters spread across zones in the region"
+  type        = string
+}
+
 variable "cluster_network" {
   description = "The name of the network (VPC) to which the cluster is connected"
   type        = string

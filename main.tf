@@ -156,6 +156,7 @@ module "cluster" {
   jxui_sc_name        = var.jxui_sc_name
   boot_sc_name        = var.boot_sc_name
   cluster_location    = local.location
+  node_locations      = var.node_locations
   cluster_network     = var.cluster_network
   cluster_subnetwork  = var.cluster_subnetwork
   cluster_id          = random_id.random.hex

@@ -8,6 +8,11 @@ output "cluster_location" {
   value       = var.cluster_location
 }
 
+output "node_locations" {
+  description = "The location of the created Kubernetes cluster"
+  value       = var.node_locations
+}
+
 output "cluster_name" {
   description = "The name of the created Kubernetes cluster"
   value       = local.cluster_name

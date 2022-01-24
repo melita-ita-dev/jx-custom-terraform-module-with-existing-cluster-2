@@ -29,6 +29,7 @@ resource "google_container_cluster" "jx_cluster" {
   logging_service         = var.logging_service
   monitoring_service      = var.monitoring_service
 
+  node_locations          = var.node_locations
 
   //----added by david-----
 

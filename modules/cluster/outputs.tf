@@ -6,6 +6,11 @@ output "cluster_location" {
   value = google_container_cluster.jx_cluster.location
 }
 
+output "node_locations" {
+  value = google_container_cluster.jx_cluster.location
+}
+
+
 output "cluster_endpoint" {
   value = google_container_cluster.jx_cluster.endpoint
 }
