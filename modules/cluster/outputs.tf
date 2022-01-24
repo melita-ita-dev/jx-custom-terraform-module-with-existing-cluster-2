@@ -7,7 +7,7 @@ output "cluster_location" {
 }
 
 output "node_locations" {
-  value = google_container_cluster.jx_cluster.location
+  value = google_container_cluster.jx_cluster.node_locations
 }
 
 
