@@ -153,8 +153,8 @@ module "cluster" {
   gcp_project         = var.gcp_project
   cluster_name        = local.cluster_name
   tekton_sc_name      = var.tekton_sc_name
-  jxui_sc_name        = var.jxui_sc_name
-  boot_sc_name        = var.boot_sc_name
+  #jxui_sc_name        = var.jxui_sc_name
+  #boot_sc_name        = var.boot_sc_name
   cluster_location    = local.location
   cluster_network     = var.cluster_network
   cluster_subnetwork  = var.cluster_subnetwork
