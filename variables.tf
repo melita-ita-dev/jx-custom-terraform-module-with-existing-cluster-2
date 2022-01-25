@@ -22,13 +22,13 @@ variable "tekton_sc_name" {
 }
 
 variable "jxui_sc_name" {
-  description = "Name of the Kubernetes cluster tekton service account"
+  description = "Name of the Kubernetes cluster jxui service account"
   type        = string
   default     = ""
 }
 
 variable "boot_sc_name" {
-  description = "Name of the Kubernetes cluster tekton service account"
+  description = "Name of the Kubernetes cluster boot service account"
   type        = string
   default     = ""
 }
