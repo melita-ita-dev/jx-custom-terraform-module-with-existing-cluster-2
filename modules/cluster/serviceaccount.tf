@@ -211,8 +211,8 @@ resource "google_service_account" "boot_sa" {
   count = var.jx2 ? 0 : 1
 
   provider     = google
-  account_id   = "${var.boot_sc_name }-boot"
-  display_name = substr("jx boot service account for cluster ${var.boot_sc_name }", 0, 100)
+  account_id   = "${var.boot_sc_name}-boot"
+  display_name = substr("jx boot service account for cluster ${var.boot_sc_name}", 0, 100)
 }
 
 resource "google_project_iam_member" "boot_sa_storage_object_admin_binding" {
