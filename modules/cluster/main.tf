@@ -165,7 +165,7 @@ resource "helm_release" "jx-git-operator" {
   }
   set {
     name  = "bootServiceAccount.annotations.iam\\.gke\\.io/gcp-service-account"
-    value = "${var.cluster_name}-boot@${var.gcp_project}.iam.gserviceaccount.com"
+    value = "${var.boot_sc_name}-boot@${var.gcp_project}.iam.gserviceaccount.com"
   }
   set {
     name  = "env.NO_RESOURCE_APPLY"
